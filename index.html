@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- @dsCard group="Portfolio" viewport="1200x760" name="Portfolio — index" subtitle="One-page portfolio for Tuấn Anh" -->
+<title>Vũ Đức Anh Tuấn — Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds_bundle.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);font-family:var(--font-body);color:var(--body)}
+a{color:var(--accent)}
+a:hover{color:var(--accent-dark)}
+::selection{background:var(--accent-soft)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Button, Tag, StatCard, SectionLabel, Card, TimelineEntry } = window.TuNAnhDesignSystem_200714;
+
+const NAV = [["gioi-thieu","Giới thiệu"],["hanh-trinh","Hành trình"],["nang-luc","Năng lực"],["khoa-hoc","Khoá học"],["lien-he","Liên hệ"]];
+
+function Nav(){
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10,background:"rgba(244,238,224,0.92)",backdropFilter:"blur(6px)",borderBottom:"1px solid var(--hairline)"}}>
+      <div style={{maxWidth:1040,margin:"0 auto",padding:"16px 32px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <div style={{fontFamily:"var(--font-display)",fontWeight:700,fontSize:20,color:"var(--ink)"}}>Tuấn Anh</div>
+        <div style={{display:"flex",gap:24}}>
+          {NAV.map(([id,label])=>(
+            <a key={id} href={"#"+id} style={{fontSize:14,fontWeight:600,textDecoration:"none",color:"var(--body)"}}>{label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Hero(){
+  return (
+    <section id="gioi-thieu" style={{maxWidth:1040,margin:"0 auto",padding:"96px 32px 64px",display:"flex",flexDirection:"column",gap:20}}>
+      <SectionLabel>Chuyên gia Vận hành &amp; Đào tạo</SectionLabel>
+      <h1 style={{fontFamily:"var(--font-display)",fontWeight:700,fontSize:64,lineHeight:1.05,color:"var(--ink)",margin:0,maxWidth:820}}>Tuấn Anh - Brian</h1>
+      <p style={{fontFamily:"var(--font-display)",fontStyle:"italic",fontWeight:500,fontSize:24,lineHeight:1.45,color:"var(--accent-dark)",maxWidth:720,margin:0}}>“Hiếm ai vừa đứng lớp, vừa chốt sales, vừa vận hành cả một học viện — tôi đã làm cả ba.”</p>
+      <p style={{fontSize:18,lineHeight:1.6,maxWidth:680,margin:0}}>Sinh năm 1998, tôi bắt đầu đi làm từ rất sớm và đến nay đã có 9+ nD�m trong Sales, Đào tạo và Quản lý dự án. Từng vận hành Học viện Health Coach Việt Nam từ giai đoạn xây dựng đội ngũ đến khi đạt doanh thu 1,8–2,4 tỷ đồng/khoá.</p>
+      <p style={{fontSize:18,lineHeight:1.6,maxWidth:680,margin:0}}>Tôi không chỉ hiểu giáo dục — tôi hiểu cách làm cho nó vận hành được, từ con số 0.</p>
+      <div style={{display:"flex",gap:14,marginTop:8}}>
+        <Button variant="primary" size="lg" onClick={()=>document.getElementById("lien-he").scrollIntoView({behavior:"smooth"})}>Liên hệ ngay</Button>
+        <Button variant="outline" size="lg" onClick={()=>document.getElementById("hanh-trinh").scrollIntoView({behavior:"smooth"})}>Xem hành trình</Button>
+      </div>
+    </section>
+  );
+}
+
+const STATS = [
+  ["9+","Năm kinh nghiệm"],
+  ["1,8–2,4 tỷ","Doanh thu / khoá học"],
+  ["35–55","Học viên / khoá"],
+  ["10+","Nhân sự từng quản lý"],
+  ["5","Đơn vị đã đồng hành"],
+];
+function Stats(){
+  return (
+    <section style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(160px,1fr))",gap:16}}>
+        {STATS.map(([v,l])=><StatCard key={l} value={v} label={l} />)}
+      </div>
+    </section>
+  );
+}
+
+const TIMELINE = [
+  ["Sale Manager","Tổ chức Giáo dục EduGroup","06/2017 – 05/2019",<>Điểm khởi đầu sự nghiệp quản lý.<br/>Quản lý trực tiếp 10 thực tập sinh, đạt doanh số trung bình 35 triệcu/tháng.<br/>Đào tạo kỹ năng giao tiếp, thuyết trình, kinh doanh; tự xây dựng database khách hàng từ đầu.</>],
+  ["Chuyên viên Đào tạo","HAB Việt Nam","06/2020 – 08/2021",<>Vạn hành lớp học trực tuyến qua Zoom cho học viên & Leader trong giai đoạn ngành giáo dục buộc chuyển đổi số vì dịch bệnh.<br/>Theo dõi tiến độ học tập, tổ chức lễ tốt nghiệp và hoạt động ngoại khoá.</>],
+  ["Teamlead Sale","Educa Corporation","09/2022 – 12/2023",<>Chuyển từ đào tạo sang trực tiếp dẫn dắt doanh số.<br/>Chỉ tiêu 110 triệu/tháng, ARPU 900k–1,2 triệu.<br/>Đào tạo nhân sự Sale mới, quản lý và chịu trách nhièm doanh số của cả team.</>],
+  ["Project Manager","Học viện Health Coach Việt Nam","01/2024 – 08/2026",<>Chuyển từ quản lý đội nhóm sang vận hành toàn bộ hệ thống.<br/>Tự tay setup CRM và Lark, phối hợp Marketing triển khai tuyển sinh, đào tạo đội ngũ Coach khởi nghiệp.<br/>Doanh thu 1,8–2,4 tỷ đồng/khoá, 35–55 học viên/khoá.</>],
+];
+function Timeline(){
+  return (
+    <section id="hanh-trinh" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <SectionLabel>Hành trình sự nghiệp</SectionLabel>
+      <div style={{marginTop:28}}>
+        {TIMELINE.map((t,i)=><TimelineEntry key={t[0]} role={t[0]} org={t[1]} period={t[2]} description={t[3]} isLast={i===TIMELINE.length-1} />)}
+      </div>
+    </section>
+  );
+}
+
+const SKILLS = [
+  ["Kinh doanh & Tư vấn","Tìm kiếm khách hàng đa kênh, tư vấn dự án, chính sách bán hàng & tài chính, xử lý từ chối."],
+  ["Vận hành & Xây dựng hệ thống","Setup CRM, quy trình tuyển sinh, SOP, hệ thống báo cáo — xây dựng từ con số 0."],
+  ["Quản lý & Đào tạo đội ngũ","Quản lý team quy mô 10+ nhân sự, đào tạo nhân sự mới, huấn luyện kỹ năng mềm."],
+  ["Content Branding & Marketing","Xây tuyến nội dung, lập content plan, phối hợp triển khai tuyển sinh/bán hàng."],
+  ["Ứng dụng AI trong vận hàng","Xây dựng và sử dụng AI Agent để tối ưu quy trình quản lý công việc, phân tích dữ liệu, sản xvất nội dung."],
+];
+function Skills(){
+  return (
+    <section id="nang-luc" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <SectionLabel>Năng lực cốt lõi</SectionLabel>
+      <div style={{marginTop:28,display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:16}}>
+        {SKILLS.map(([t,d])=><Card key={t} title={t}>{d}</Card>)}
+      </div>
+    </section>
+  );
+}
+
+const COURSES = [
+  ["Content Branding","Xây dựng thương hiệu qua nội dung, viết content có chiều sâu."],
+  ["MKT Fullstack","Marketing đa kênh, từ chiến lược đến thực thi."],
+  ["Trợ lý AI Agent","Xây dựng và ứng dụng AI Agent vào công việc vận hành, quản lý."],
+];
+function Courses(){
+  return (
+    <section id="khoa-hoc" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <SectionLabel>Khoá học bổ sung</SectionLabel>
+      <div style={{marginTop:28,display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:16}}>
+        {COURSES.map(([t,d])=><Card key={t} eyebrow="Khoá học" title={t} footer={<Tag variant="accent">Đã hoàn thành</Tag>}>{d}</Card>)}
+      </div>
+      <div style={{marginTop:40,paddingTop:32,borderTop:"1px solid var(--hairline)"}}>
+        <SectionLabel>Học vấn</SectionLabel>
+        <div style={{marginTop:16,fontSize:16,lineHeight:1.6}}>
+          <div style={{fontFamily:"var(--font-display)",fontWeight:600,fontSize:20,color:"var(--ink)"}}>Học viện quốc tế CNTT NIIT-ICT Hà Nội</div>
+          <div style={{color:"var(--muted)",fontSize:14,marginTop:2}}>Chuyên viên Phần mềm · 2016 – 2019</div>
+          <div style={{marginTop:8}}>Chứng chỉ Soft Skills &amp; Coaching Skill — EduGroup</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WorkStyle(){
+  return (
+    <section id="phong-cach" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <SectionLabel>Phong cách làm việc</SectionLabel>
+      <div style={{marginTop:28,maxWidth:760}}>
+        <Card>
+          <p style={{margin:0}}>Người thực thi mạnh — triển khai nhanh, quyết liệt và ra kết quả cụ thể khi có chiến lược, định hướng rõ ràng. Phù hợp nhất khi đồng hành cùng đội ngũ lãnh đạo minh bạch mục tiêu, trao quyền tự chủ trong cách thực thi.</p>
+          <p style={{margin:"16px 0 0"}}>Quen làm việc trong tổ chức chưa có sẵn quy trình — từng tự xây database, CRM, hệ thống báo cáo từ đầu ở nhiều vị trí.</p>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
+function BrandDirection(){
+  return (
+    <section id="thuong-hieu" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 96px"}}>
+      <SectionLabel>Định hướng thương hiệu cá nhân</SectionLabel>
+      <div style={{marginTop:28,maxWidth:760}}>
+        <Card>
+          <p style={{margin:0}}>Tập trung chia sẻ về: hành trình vận hành học viện thực chiến, chuyển đổi tư duy Sales sang Giáo dục, kiến thức vận hàng/quản trị (CRM, SOP, tuyển sinh), và ứng dụng AI trong vận hành giáo dục.</p>
+        </Card>
+      </div>
+    </section>
+  );
+}
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwQgMWV5WsY3k7EDlPu98Os74OIYoO-JPpB4f8NkmtxJsFKx1aT7iOHaafX3jX8-29S/exec";
+
+const inputStyle = {
+  width:"100%",padding:"12px 16px",borderRadius:"var(--radius-lg)",
+  border:"1px solid var(--hairline)",background:"var(--paper)",
+  fontFamily:"var(--font-body)",fontSize:15,color:"var(--ink)",outline:"none",boxSizing:"border-box"
+};
+
+function Contact(){
+  const [status, setStatus] = React.useState("idle"); // idle | submitting | success
+
+  function handleSubmit(ev){
+    ev.preventDefault();
+    setStatus("submitting");
+    const formData = new FormData(ev.target);
+    // Apps Script không trả CORS header chuẩn nên bắt buộc dùng mode: "no-cors";
+    // do đó không đọc được response — coi gửi xong là thành công (optimistic UI).
+    fetch(APPS_SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData })
+      .then(() => setStatus("success"))
+      .catch(() => setStatus("idle"));
+  }
+
+  return (
+    <section id="lien-he" style={{maxWidth:1040,margin:"0 auto",padding:"0 32px 120px"}}>
+      <SectionLabel>Liên hệ</SectionLabel>
+      <div style={{marginTop:28,background:"var(--surface-card)",border:"1px solid var(--hairline)",borderRadius:"var(--radius-lg)",boxShadow:"var(--shadow-card)",padding:40,display:"flex",flexDirection:"column",gap:20,maxWidth:640}}>
+        <div style={{fontFamily:"var(--font-display)",fontWeight:600,fontSize:26,lineHeight:1.3,color:"var(--ink)"}}>Quý anh/chị là đơn vị tuyển dụng/đối tác quan tâm đến hồ sơ này?</div>
+        <div style={{fontSize:16,lineHeight:1.6,color:"var(--body)"}}>Vui lòng để lại thông tin liên hệ bên dưới — em sẽ chủ động liên hệ lại trong thời gian sớm nhất.</div>
+
+        {status === "success" ? (
+          <div style={{padding:"16px 20px",background:"var(--accent-soft)",borderRadius:"var(--radius-lg)",color:"var(--accent-dark)",fontWeight:600}}>
+            Cảm ơn anh/chị đã để lại thông tin! Em sẽ liên hệ lại trong 24-48h.
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            style={{display:"flex",flexDirection:"column",gap:14}}
+          >
+            <input name="hoTen" placeholder="Họ và tên *" required style={inputStyle} />
+            <input name="donVi" placeholder="Đơn vị / Công ty *" required style={inputStyle} />
+            <input name="chucVu" placeholder="Chức vụ của bạn" style={inputStyle} />
+            <input name="email" type="email" placeholder="Email liên hệ" style={inputStyle} />
+            <input name="sdt" placeholder="Số điện thoại" style={inputStyle} />
+            <input name="viTri" placeholder="Vị trí / Cơ hội muốn trao đổi" style={inputStyle} />
+            <textarea name="loiNhan" placeholder="Lời nhắn th�m" rows={3} style={inputStyle}></textarea>
+            {/* Honeypot chống spam bot: người dùng thật không thấy field này */}
+            <input type="text" name="website" style={{display:"none"}} tabIndex="-1" autoComplete="off" />
+            <Button variant="primary" size="lg" type="submit">{status === "submitting" ? "Đang gửi..." : "Gửi thông tin"}</Button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Footer(){
+  return (
+    <footer style={{borderTop:"1px solid var(--hairline)",padding:"32px",textAlign:"center",fontSize:13,color:"var(--muted)"}}>
+      © 2026 Vũ Đức Anh Tuấn. Portfolio dựng từ Tuấn Anh Design System.
+    </footer>
+  );
+}
+
+function App(){
+  return (<>
+    <Nav/>
+    <Hero/>
+    <Stats/>
+    <Timeline/>
+    <Skills/>
+    <Courses/>
+    <WorkStyle/>
+    <BrandDirection/>
+    <Contact/>
+    <Footer/>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
