@@ -74,9 +74,9 @@ function Stats(){
 }
 
 const TIMELINE = [
-  ["Sale Manager","Tổ chức Giáo dục EduGroup","06/2017 – 05/2019",<>Điểm khởi đầu sự nghiệp quản lý.<br/>Quản lý trực tiếp 10 thực tập sinh, đạt doanh số trung bình 35 triệcu/tháng.<br/>Đào tạo kỹ năng giao tiếp, thuyết trình, kinh doanh; tự xây dựng database khách hàng từ đầu.</>],
-  ["Chuyên viên Đào tạo","HAB Việt Nam","06/2020 – 08/2021",<>Vạn hành lớp học trực tuyến qua Zoom cho học viên & Leader trong giai đoạn ngành giáo dục buộc chuyển đổi số vì dịch bệnh.<br/>Theo dõi tiến độ học tập, tổ chức lễ tốt nghiệp và hoạt động ngoại khoá.</>],
-  ["Teamlead Sale","Educa Corporation","09/2022 – 12/2023",<>Chuyển từ đào tạo sang trực tiếp dẫn dắt doanh số.<br/>Chỉ tiêu 110 triệu/tháng, ARPU 900k–1,2 triệu.<br/>Đào tạo nhân sự Sale mới, quản lý và chịu trách nhièm doanh số của cả team.</>],
+  ["Sale Manager","Tổ chức Giáo dục EduGroup","06/2017 – 05/2019",<>Điểm khởi đầu sự nghiệp quản lý.<br/>Quản lý trực tiếp 10 thực tập sinh, đạt doanh số trung bình 35 triệu/tháng.<br/>Đào tạo kỹ năng giao tiếp, thuyết trình, kinh doanh; tự xây dựng database khách hàng từ đầu.</>],
+  ["Chuyên viên Đào tạo","HAB Việt Nam","06/2020 – 08/2021",<>Vận hành lớp học trực tuyến qua Zoom cho học viên & Leader trong giai đoạn ngành giáo dục buộc chuyển đổi số vì dịch bệnh.<br/>Theo dõi tiến độ học tập, tổ chức lễ tốt nghiệp và hoạt động ngoại khoá.</>],
+  ["Teamlead Sale","Educa Corporation","09/2022 – 12/2023",<>Chuyển từ đào tạo sang trực tiếp dẫn dắt doanh số.<br/>Chỉ tiêu 110 triệu/tháng, ARPU 900k–1,2 triệu.<br/>Đào tạo nhân sự Sale mới, quản lý và chịu trách nhiệm doanh số của cả team.</>],
   ["Project Manager","Học viện Health Coach Việt Nam","01/2024 – 08/2026",<>Chuyển từ quản lý đội nhóm sang vận hành toàn bộ hệ thống.<br/>Tự tay setup CRM và Lark, phối hợp Marketing triển khai tuyển sinh, đào tạo đội ngũ Coach khởi nghiệp.<br/>Doanh thu 1,8–2,4 tỷ đồng/khoá, 35–55 học viên/khoá.</>],
 ];
 function Timeline(){
@@ -95,7 +95,7 @@ const SKILLS = [
   ["Vận hành & Xây dựng hệ thống","Setup CRM, quy trình tuyển sinh, SOP, hệ thống báo cáo — xây dựng từ con số 0."],
   ["Quản lý & Đào tạo đội ngũ","Quản lý team quy mô 10+ nhân sự, đào tạo nhân sự mới, huấn luyện kỹ năng mềm."],
   ["Content Branding & Marketing","Xây tuyến nội dung, lập content plan, phối hợp triển khai tuyển sinh/bán hàng."],
-  ["Ứng dụng AI trong vận hàng","Xây dựng và sử dụng AI Agent để tối ưu quy trình quản lý công việc, phân tích dữ liệu, sản xvất nội dung."],
+  ["Ứng dụng AI trong vận hành","Xây dựng và sử dụng AI Agent để tối ưu quy trình quản lý công việc, phân tích dữ liệu, sản xuất nội dung."],
 ];
 function Skills(){
   return (
@@ -152,7 +152,7 @@ function BrandDirection(){
       <SectionLabel>Định hướng thương hiệu cá nhân</SectionLabel>
       <div style={{marginTop:28,maxWidth:760}}>
         <Card>
-          <p style={{margin:0}}>Tập trung chia sẻ về: hành trình vận hành học viện thực chiến, chuyển đổi tư duy Sales sang Giáo dục, kiến thức vận hàng/quản trị (CRM, SOP, tuyển sinh), và ứng dụng AI trong vận hành giáo dục.</p>
+          <p style={{margin:0}}>Tập trung chia sẻ về: hành trình vận hành học viện thực chiến, chuyển đổi tư duy Sales sang Giáo dục, kiến thức vận hành/quản trị (CRM, SOP, tuyển sinh), và ứng dụng AI trong vận hành giáo dục.</p>
         </Card>
       </div>
     </section>
@@ -203,7 +203,7 @@ function Contact(){
             <input name="email" type="email" placeholder="Email liên hệ" style={inputStyle} />
             <input name="sdt" placeholder="Số điện thoại" style={inputStyle} />
             <input name="viTri" placeholder="Vị trí / Cơ hội muốn trao đổi" style={inputStyle} />
-            <textarea name="loiNhan" placeholder="Lời nhắn th�m" rows={3} style={inputStyle}></textarea>
+            <textarea name="loiNhan" placeholder="Lời nhắn thêm" rows={3} style={inputStyle}></textarea>
             {/* Honeypot chống spam bot: người dùng thật không thấy field này */}
             <input type="text" name="website" style={{display:"none"}} tabIndex="-1" autoComplete="off" />
             <Button variant="primary" size="lg" type="submit">{status === "submitting" ? "Đang gửi..." : "Gửi thông tin"}</Button>
