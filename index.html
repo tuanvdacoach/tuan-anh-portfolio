@@ -209,6 +209,14 @@ function Contact(){
             <Button variant="primary" size="lg" type="submit">{status === "submitting" ? "Đang gửi..." : "Gửi thông tin"}</Button>
           </form>
         )}
+
+        <div style={{marginTop:4,paddingTop:20,borderTop:"1px solid var(--hairline)",display:"flex",flexDirection:"column",gap:8}}>
+          <div style={{fontSize:13,fontWeight:600,letterSpacing:"1px",textTransform:"uppercase",color:"var(--muted)"}}>Hoặc liên hệ trực tiếp</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:"8px 24px",fontSize:16}}>
+            <a href="tel:+84829396685" style={{color:"var(--ink)",textDecoration:"none",fontWeight:600}}>📞 0829.396.685</a>
+            <a href="mailto:tuanvda.coach@gmail.com" style={{color:"var(--ink)",textDecoration:"none",fontWeight:600}}>✉️ tuanvda.coach@gmail.com</a>
+          </div>
+        </div>
       </div>
     </section>
   );
